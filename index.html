@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>フルーツスラッシュ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- ゲームキャンバス -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- HUD（スコア・コンボ・ライフ表示） -->
+        <div id="hud">
+            <div id="score-display">スコア: <span id="score">0</span></div>
+            <div id="combo-display" class="hidden">COMBO <span id="combo-count">x2</span></div>
+            <div id="lives-display">
+                <span class="life" id="life1">🍎</span>
+                <span class="life" id="life2">🍎</span>
+                <span class="life" id="life3">🍎</span>
+                <span class="life" id="life4">🍎</span>
+                <span class="life" id="life5">🍎</span>
+            </div>
+        </div>
+
+        <!-- スタート画面 -->
+        <div id="start-screen" class="overlay">
+            <h1>🍉 フルーツスラッシュ</h1>
+            <p>スワイプしてフルーツを切ろう！<br>💣 爆弾は切らないように！</p>
+
+            <!-- 難易度選択 -->
+            <div id="difficulty-section">
+                <p class="diff-label">難易度を選んでね</p>
+                <div id="difficulty-buttons">
+                    <button class="diff-btn" id="btn-easy"   data-diff="easy">😊 やさしい</button>
+                    <button class="diff-btn selected" id="btn-normal" data-diff="normal">😐 ふつう</button>
+                    <button class="diff-btn" id="btn-hard"   data-diff="hard">😈 むずかしい</button>
+                </div>
+                <p id="diff-desc" class="diff-desc">ライフ5　爆弾あり　標準速度</p>
+            </div>
+
+            <button id="start-btn">ゲームスタート</button>
+        </div>
+
+        <!-- ゲームオーバー画面 -->
+        <div id="gameover-screen" class="overlay hidden">
+            <h1>ゲームオーバー</h1>
+            <p id="final-score">スコア: 0</p>
+            <p id="final-combo">最大コンボ: 0</p>
+            <p id="high-score-display">ハイスコア: 0</p>
+            <button id="restart-btn">もう一度プレイ</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
